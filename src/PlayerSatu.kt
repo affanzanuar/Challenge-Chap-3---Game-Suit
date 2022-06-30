@@ -7,5 +7,4 @@ class PlayerSatu(name : String) : Player() {
     init {
         super.name = name
     }
-
 }
