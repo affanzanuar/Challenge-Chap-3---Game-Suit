@@ -1,7 +1,5 @@
 class Perbandingan {
 
-    var handName = arrayOf("batu", "gunting", "kertas")
-
     fun perbandinganVsPlayer(player1: String , player2 : String) : String {
         return if (player1==player2){
             "DRAW"
@@ -14,24 +12,5 @@ class Perbandingan {
         } else {
             "Player 2 win"
         }
-    }
-
-    fun getResult (message : String) : String {
-        print(message)
-        var userKeyword = readLine()?.lowercase()?.trim()
-
-        while (userKeyword !in handName){
-            print("Hanya bisa (batu/gunting/kertas)")
-            userKeyword = readLine()?.lowercase()?.trim()
-        }
-        return userKeyword!!
-    }
-
-    fun player1Hand():String{
-        return getResult("Player 1 pilih (batu/gunting/kertas) : ")
-    }
-
-    fun player2Hand():String{
-        return getResult("Player 2 pilih (batu/gunting/kertas) : ")
     }
 }
