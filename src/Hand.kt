@@ -1,5 +1,5 @@
 object Hand {
-    var handName = arrayOf(
+    private var handName = arrayOf(
         HandType.A.nama,
         HandType.B.nama,
         HandType.C.nama
