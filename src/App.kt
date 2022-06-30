@@ -3,16 +3,8 @@ class App {
     companion object{
         @JvmStatic
         fun main(args: Array<String>) {
-
-            println("""
-                ==========================
-                GAME SUIT TERMINAL VERSION
-                ==========================
-            """.trimIndent())
-
+            Utility.getHeaderGame()
             App().twoPlayer()
-
-
         }
     }
 
@@ -33,19 +25,13 @@ class App {
 
         var isKeepPlaying = true
         while (isKeepPlaying){
+            Utility.getHeaderGame()
+            for (value in Hand.handName){
+                println("         $value")
+            }
+            println("------UPPER Or lower------")
             playerSatu.attack(playerDua)
-            isKeepPlaying = getYesOrNo("Mau main lagi?")
+            isKeepPlaying = Utility.getYesOrNo("Mau main lagi?")
         }
-    }
-
-    fun getYesOrNo(message : String) : Boolean{
-        print("$message (y/n) : ")
-        var inputUser = readLine()?.lowercase()?.trim()
-        while (inputUser != "y" && inputUser != "n"){
-            println("pilih y atau n saja, jangan yg lain :) ")
-            print("$message (y/n) : ")
-            inputUser = readLine()?.lowercase()?.trim()
-        }
-        return inputUser == "y"
     }
 }

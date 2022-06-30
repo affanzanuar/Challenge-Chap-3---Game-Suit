@@ -21,14 +21,14 @@ abstract class Person {
             || playerOneHand == b && playerTwoHand == c
             || playerOneHand == c && playerTwoHand == a
         ) {
-            println("${this.name} WIN")
+            println("------${this.name} WIN------")
             this.score++
             println("""
                 ${this.name} = ${this.score}
                 ${opponent.name} = ${opponent.score}
             """.trimIndent())
         } else {
-            println("${opponent.name} WIN")
+            println("------${opponent.name} WIN------")
             opponent.score++
             println("""
                 ${this.name} = ${this.score}
