@@ -12,14 +12,21 @@ class App {
 
 
             print("Masukkan nama Player 1 : ")
-            val playerSatu = PlayerSatu(readLine()!!.uppercase().trim())
+            var namaPlayerSatu = readLine()!!.uppercase().trim()
+            if (namaPlayerSatu.isBlank()){
+                namaPlayerSatu = "Anonymous_1"
+            }
+            val playerSatu = Player(namaPlayerSatu)
+
             print("Masukkan nama Player 2 : ")
-            val playerDua = PlayerDua(readLine()!!.uppercase().trim())
+            var namaPlayerDua = readLine()!!.uppercase().trim()
+            if (namaPlayerDua.isBlank()){
+                namaPlayerDua = "Anonymous_2"
+            }
+            val playerDua = Player(namaPlayerDua)
 
             playerSatu.attack(playerDua)
 
         }
     }
-
-
 }
