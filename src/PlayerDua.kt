@@ -1,7 +1,10 @@
-class PlayerDua : Player() {
+class PlayerDua (name : String) : Player() {
+
     override fun playerHand(): String {
-        return Hand.getResult("Pilih yang mana : ")
+        return Hand.getResult("Pilih yang mana ${this.name} : ")
     }
 
-
+    init {
+        super.name = name
+    }
 }

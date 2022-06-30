@@ -10,13 +10,13 @@ class App {
                 ==========================
             """.trimIndent())
 
-            val compare = Perbandingan()
-            val playerSatu = PlayerSatu()
-            val playerDua = PlayerDua()
 
+            print("Masukkan nama Player 1 : ")
+            val playerSatu = PlayerSatu(readLine()!!.uppercase().trim())
+            print("Masukkan nama Player 2 : ")
+            val playerDua = PlayerDua(readLine()!!.uppercase().trim())
 
-            val result = compare.perbandinganVsPlayer(playerSatu.playerHand(),playerDua.playerHand())
-            println(result)
+            playerSatu.attack(playerDua)
 
         }
     }
