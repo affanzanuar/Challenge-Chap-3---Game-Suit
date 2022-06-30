@@ -6,7 +6,7 @@ abstract class Person {
 
     abstract fun playerHand() : String
 
-    open fun attack(opponent : Person){
+    open fun attack(opponent : Player){
         println("${this.name} VS ${opponent.name}")
 
         val playerOneHand = this.playerHand()
