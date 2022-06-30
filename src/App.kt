@@ -1,4 +1,5 @@
 class App {
+
     companion object{
         @JvmStatic
         fun main(args: Array<String>) {
@@ -9,9 +10,12 @@ class App {
                 ==========================
             """.trimIndent())
 
+            val compare = Perbandingan()
+            val playerSatu = PlayerSatu()
+            val playerDua = PlayerDua()
 
-            var perbandingan = Perbandingan()
-            var result = perbandingan.perbandinganVsPlayer(perbandingan.player1Hand(),perbandingan.player2Hand())
+
+            val result = compare.perbandinganVsPlayer(playerSatu.playerHand(),playerDua.playerHand())
             println(result)
 
         }
