@@ -9,8 +9,9 @@ object Utility {
 
     fun getMainMenu(){
         println("""
-            1.  PLAY
-            2.  EXIT
+            |        1   PLAY        |
+            |        2   EXIT        |
+            +------------------------+
         """.trimIndent())
     }
 

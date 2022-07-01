@@ -4,7 +4,7 @@ class App {
         @JvmStatic
         fun main(args: Array<String>) {
 
-            var isContinueMenu : Boolean = true
+            var isContinueMenu = true
 
             loopI@ while (isContinueMenu){
                 Utility.getHeaderGame()
@@ -16,8 +16,6 @@ class App {
                     "1" -> App().twoPlayer()
                     "2" -> break@loopI
                 }
-
-
                 isContinueMenu = Utility.getYesOrNo("Mau balik ke menu?")
             }
         }
