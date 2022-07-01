@@ -1,5 +1,5 @@
 abstract class Person {
-    open lateinit var name : String
+    protected open lateinit var name : String
     open var score : Int = 0
     abstract fun playerHand() : String
 
@@ -9,7 +9,7 @@ abstract class Person {
     private var c = HandType.C.nama
 
     fun attack(opponent : Player){
-        println("${this.name} VS ${opponent.name}")
+        println("Saatnya ${this.name} melawan ${opponent.name}")
 
         val playerOneHand = this.playerHand()
         val playerTwoHand = opponent.playerHand()
@@ -21,18 +21,30 @@ abstract class Person {
             || playerOneHand == b && playerTwoHand == c
             || playerOneHand == c && playerTwoHand == a
         ) {
-            println("------${this.name} WIN------")
+            Utility.getHeaderGame()
+            println("""
+                 
+                ||****** ${this.name} WIN ******||
+                 
+            """.trimIndent())
             this.score++
             println("""
-                ${this.name} = ${this.score}
-                ${opponent.name} = ${opponent.score}
+                --------- SCORE ----------
+                ${this.name} = ${this.score}   ||   ${opponent.name} = ${opponent.score}
+                ==========================
             """.trimIndent())
         } else {
-            println("------${opponent.name} WIN------")
+            Utility.getHeaderGame()
+            println("""
+                 
+                ||****** ${opponent.name} WIN ******||
+                
+                 
+            """.trimIndent())
             opponent.score++
             println("""
-                ${this.name} = ${this.score}
-                ${opponent.name} = ${opponent.score}
+                ${this.name} = ${this.score}    ||    ${opponent.name} = ${opponent.score}
+                ==========================
             """.trimIndent())
         }
     }
