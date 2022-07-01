@@ -10,7 +10,7 @@ object Hand {
         var userKeyword = readLine()?.lowercase()?.trim()
 
         while (userKeyword !in handName){
-            print("Hanya bisa (batu/gunting/kertas)")
+            print("Hanya bisa memilih pilihan di atas : ")
             userKeyword = readLine()?.lowercase()?.trim()
         }
         return userKeyword!!
