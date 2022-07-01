@@ -11,6 +11,10 @@ class Bot(name : String) : Person() {
         return Hand.handName.random()
     }
 
+    fun playerHand(name : String ) { // <- Overloading
+
+    }
+
     init {
         super.name = name
         super.score = score
