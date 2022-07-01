@@ -7,7 +7,7 @@ abstract class Person {
     private var b = HandType.B.nama
     private var c = HandType.C.nama
 
-    fun attack(opponent : Player){
+    fun attack(opponent : Person){
         println("\nSaatnya ${this.name} melawan ${opponent.name}")
 
         val playerOneHand = this.playerHand()

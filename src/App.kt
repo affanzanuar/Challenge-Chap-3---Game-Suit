@@ -14,7 +14,8 @@ class App {
 
                 when(userKeyword){
                     "1" -> App().twoPlayer()
-                    "2" -> break@loopI
+                    "2" -> App().vsBot()
+                    "3" -> break@loopI
                 }
                 isContinueMenu = Utility.getYesOrNo("Mau balik ke menu?")
             }
@@ -46,5 +47,28 @@ class App {
             playerSatu.attack(playerDua)
             isKeepPlaying = Utility.getYesOrNo("Mau main lagi?")
         }
+    }
+
+    fun vsBot(){
+        print("Masukkan nama Player 1 : ")
+        var namaPlayerSatu = readLine()!!.uppercase().trim()
+        if (namaPlayerSatu.isBlank()){
+            namaPlayerSatu = "Anonymous_1"
+        }
+        val playerSatu = Player(namaPlayerSatu)
+
+        val playerBot = Bot("Bot")
+
+        var isKeepPlaying = true
+        while (isKeepPlaying){
+            Utility.getHeaderGame()
+            for (value in Hand.handName){
+                println("         $value")
+            }
+            println("------UPPER Or lower------")
+            playerSatu.attack(playerBot)
+            isKeepPlaying = Utility.getYesOrNo("Mau main lagi?")
+        }
+
     }
 }
