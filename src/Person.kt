@@ -3,7 +3,6 @@ abstract class Person {
     open var score : Int = 0
     abstract fun playerHand() : String
 
-
     private var a = HandType.A.nama
     private var b = HandType.B.nama
     private var c = HandType.C.nama
@@ -53,6 +52,7 @@ abstract class Person {
             """.trimIndent())
             opponent.score++
             println("""
+                --------- SCORE ----------
                 ${this.name} = ${this.score}    ||    ${opponent.name} = ${opponent.score}
                 ==========================
             """.trimIndent())
