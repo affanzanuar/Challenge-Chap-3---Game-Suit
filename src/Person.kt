@@ -9,13 +9,23 @@ abstract class Person {
     private var c = HandType.C.nama
 
     fun attack(opponent : Player){
-        println("Saatnya ${this.name} melawan ${opponent.name}")
+        println("\nSaatnya ${this.name} melawan ${opponent.name}")
 
         val playerOneHand = this.playerHand()
         val playerTwoHand = opponent.playerHand()
 
         if (playerOneHand==playerTwoHand){
-            println("DRAW")
+            Utility.getHeaderGame()
+            println("""
+                 
+                ||******** DRAW ********||
+                 
+            """.trimIndent())
+            println("""
+                --------- SCORE ----------
+                ${this.name} = ${this.score}   ||   ${opponent.name} = ${opponent.score}
+                ==========================
+            """.trimIndent())
         } else if (
             playerOneHand == a && playerTwoHand == b
             || playerOneHand == b && playerTwoHand == c
