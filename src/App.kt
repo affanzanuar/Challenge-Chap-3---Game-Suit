@@ -58,6 +58,7 @@ class App {
         val playerSatu = Player(namaPlayerSatu)
 
         val playerBot = Bot("Bot")
+        playerBot.name = "sabrina"
 
         var isKeepPlaying = true
         while (isKeepPlaying){

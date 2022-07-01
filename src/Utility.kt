@@ -10,7 +10,8 @@ object Utility {
     fun getMainMenu(){
         println("""
             |        1   PLAY        |
-            |        2   EXIT        |
+            |        2   VS BOT      |
+            |        3   EXIT        |
             +------------------------+
         """.trimIndent())
     }

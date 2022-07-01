@@ -1,5 +1,10 @@
 class Bot(name : String) : Person() {
 
+    override var name: String
+        get() = super.name.uppercase().trim()
+        set(value) {
+            super.name = value
+        }
     override var score : Int = 0
 
     override fun playerHand(): String {

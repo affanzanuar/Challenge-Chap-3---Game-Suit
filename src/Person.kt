@@ -1,5 +1,5 @@
 abstract class Person {
-    protected open lateinit var name : String
+    open lateinit var name : String
     open var score : Int = 0
     abstract fun playerHand() : String
 
