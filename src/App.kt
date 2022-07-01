@@ -3,8 +3,23 @@ class App {
     companion object{
         @JvmStatic
         fun main(args: Array<String>) {
-            Utility.getHeaderGame()
-            App().twoPlayer()
+
+            var isContinueMenu : Boolean = true
+
+            loopI@ while (isContinueMenu){
+                Utility.getHeaderGame()
+                Utility.getMainMenu()
+                print("Masukkan pilihan anda : ")
+                val userKeyword = readLine()?.trim()
+
+                when(userKeyword){
+                    "1" -> App().twoPlayer()
+                    "2" -> break@loopI
+                }
+
+
+                isContinueMenu = Utility.getYesOrNo("Mau balik ke menu?")
+            }
         }
     }
 

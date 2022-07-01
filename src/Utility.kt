@@ -7,6 +7,13 @@ object Utility {
         """.trimIndent())
     }
 
+    fun getMainMenu(){
+        println("""
+            1.  PLAY
+            2.  EXIT
+        """.trimIndent())
+    }
+
     fun getYesOrNo(message : String) : Boolean{
         print("$message (y/n) : ")
         var inputUser = readLine()?.lowercase()?.trim()
