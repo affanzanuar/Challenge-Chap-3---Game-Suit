@@ -16,9 +16,9 @@ abstract class Person {
         if (playerOneHand==playerTwoHand){
             Utility.getHeaderGame()
             println("""
-                 
+                ${this.name} = ${playerOneHand.uppercase()} 
+                ${opponent.name} = ${playerTwoHand.uppercase()} 
                 ||******** DRAW ********||
-                 
             """.trimIndent())
             println("""
                 --------- SCORE ----------
@@ -32,9 +32,9 @@ abstract class Person {
         ) {
             Utility.getHeaderGame()
             println("""
-                 
+                ${this.name} = ${playerOneHand.uppercase()} 
+                ${opponent.name} = ${playerTwoHand.uppercase()}
                 ||****** ${this.name} WIN ******||
-                 
             """.trimIndent())
             this.score++
             println("""
@@ -45,10 +45,9 @@ abstract class Person {
         } else {
             Utility.getHeaderGame()
             println("""
-                 
+                ${this.name} = ${playerOneHand.uppercase()} 
+                ${opponent.name} = ${playerTwoHand.uppercase()}
                 ||****** ${opponent.name} WIN ******||
-                
-                 
             """.trimIndent())
             opponent.score++
             println("""
