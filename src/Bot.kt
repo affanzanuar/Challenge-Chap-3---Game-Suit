@@ -9,11 +9,12 @@ class Bot(name : String) : Person() {
 
     @Override
     override fun playerHand(): String {
-        return Hand.handName.random()
+        return playerHand(Hand.handName)
     }
 
-    fun playerHand(name : String ) { // <- Overloading
-
+    //Overloading
+    private fun playerHand(hand: Array<String>): String {
+        return hand.random()
     }
 
     init {
