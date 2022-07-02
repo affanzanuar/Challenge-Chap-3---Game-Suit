@@ -7,6 +7,7 @@ class Bot(name : String) : Person() {
         }
     override var score : Int = 0
 
+    @Override
     override fun playerHand(): String {
         return Hand.handName.random()
     }

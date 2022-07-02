@@ -1,6 +1,7 @@
 object Utility {
     fun getHeaderGame(){
         println("""
+            
             ==========================
             GAME SUIT TERMINAL VERSION
             ==========================
@@ -17,6 +18,19 @@ object Utility {
     }
 
     fun getSayGoodBye(){
+        val x = 5
+        println()
+        for ( baris in 1..2*x ){
+            val totalSpace = if ( baris < x ) x - baris else baris - x
+            val totalKolom = if ( baris < x ) baris else (2*x) - baris
+            for (space in 1 .. totalSpace) {
+                print("   ")
+            }
+            for (kolom in 1 .. totalKolom) {
+                print("*     ")
+            }
+            println()
+        }
         println("""
             === SEE YOU NEXT TIME! ===
             == SABRINA UNDUR DIRI:) ==
