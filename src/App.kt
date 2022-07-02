@@ -15,9 +15,14 @@ class App {
                 when(userKeyword){
                     "1" -> App().twoPlayer()
                     "2" -> App().vsBot()
-                    "3" -> break@loopI
+                    "3" -> {
+                        Utility.getSayGoodBye()
+                        break@loopI
+                    }
+                    else -> println("Pilihan salah, pilihan menu hanya 1 - 3 :)")
                 }
                 isContinueMenu = Utility.getYesOrNo("Mau balik ke menu?")
+                Utility.getSayGoodBye()
             }
         }
     }
@@ -43,7 +48,7 @@ class App {
             for (value in Hand.handName){
                 println("         $value")
             }
-            println("------UPPER Or lower------")
+            println("--UPPERCASE Or lowercase--")
             playerSatu.attack(playerDua)
             isKeepPlaying = Utility.getYesOrNo("Mau main lagi?")
         }
@@ -66,7 +71,7 @@ class App {
             for (value in Hand.handName){
                 println("         $value")
             }
-            println("------UPPER Or lower------")
+            println("--UPPERCASE Or lowercase--")
             playerSatu.attack(playerBot)
             isKeepPlaying = Utility.getYesOrNo("Mau main lagi?")
         }

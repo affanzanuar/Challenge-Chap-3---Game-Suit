@@ -16,6 +16,13 @@ object Utility {
         """.trimIndent())
     }
 
+    fun getSayGoodBye(){
+        println("""
+            === SEE YOU NEXT TIME! ===
+            == SABRINA UNDUR DIRI:) ==
+        """.trimIndent())
+    }
+
     fun getYesOrNo(message : String) : Boolean{
         print("$message (y/n) : ")
         var inputUser = readLine()?.lowercase()?.trim()
