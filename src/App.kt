@@ -46,6 +46,7 @@ class App {
                 println("         $value")
             }
             println("--UPPERCASE Or lowercase--")
+            println("---Space doesn't matter---")
             playerSatu.attack(playerDua)
             isKeepPlaying = Utility.getYesOrNo("Mau main lagi?")
         }
@@ -69,6 +70,7 @@ class App {
                 println("         $value")
             }
             println("--UPPERCASE Or lowercase--")
+            println("---Space doesn't matter---")
             playerSatu.attack(playerBot)
             isKeepPlaying = Utility.getYesOrNo("Mau main lagi?")
         }
