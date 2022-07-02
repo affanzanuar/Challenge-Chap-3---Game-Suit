@@ -16,14 +16,13 @@ class App {
                     "1" -> App().twoPlayer()
                     "2" -> App().vsBot()
                     "3" -> {
-                        Utility.getSayGoodBye()
                         break@loopI
                     }
                     else -> println("Pilihan salah, pilihan menu hanya 1 - 3 :)")
                 }
                 isContinueMenu = Utility.getYesOrNo("Mau balik ke menu?")
-                Utility.getSayGoodBye()
             }
+            Utility.getSayGoodBye()
         }
     }
 
