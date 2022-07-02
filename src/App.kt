@@ -9,7 +9,7 @@ class App {
             loopI@ while (isContinueMenu){
                 Utility.getHeaderGame()
                 Utility.getMainMenu()
-                print("Masukkan pilihan anda : ")
+                print("\nMasukkan pilihan anda : ")
                 val userKeyword = readLine()?.trim()
 
                 when(userKeyword){
@@ -73,5 +73,4 @@ class App {
             isKeepPlaying = Utility.getYesOrNo("Mau main lagi?")
         }
     }
-
 }

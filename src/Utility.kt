@@ -1,5 +1,9 @@
 object Utility {
     fun getHeaderGame(){
+        val y = 25
+        for (baris in 0..y){
+            println()
+        }
         println("""
             
             ==========================
@@ -18,6 +22,10 @@ object Utility {
     }
 
     fun getSayGoodBye(){
+        val y = 25
+        for (baris in 0..y){
+            println()
+        }
         val x = 5
         println()
         for ( baris in 1..2*x ){
