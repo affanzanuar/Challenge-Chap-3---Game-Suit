@@ -16,13 +16,13 @@ abstract class Person {
         if (playerOneHand==playerTwoHand){
             Utility.getHeaderGame()
             println("""
-                ${this.name} = ${playerOneHand.uppercase()} 
-                ${opponent.name} = ${playerTwoHand.uppercase()} 
+                -> ${this.name} = ${playerOneHand.uppercase()} 
+                -> ${opponent.name} = ${playerTwoHand.uppercase()} 
                 ||******** DRAW ********||
             """.trimIndent())
             println("""
                 --------- SCORE ----------
-                ${this.name} = ${this.score}   ||   ${opponent.name} = ${opponent.score}
+                ${this.name} = ${this.score} || ${opponent.name} = ${opponent.score}
                 ==========================
             """.trimIndent())
         } else if (
@@ -32,27 +32,27 @@ abstract class Person {
         ) {
             Utility.getHeaderGame()
             println("""
-                ${this.name} = ${playerOneHand.uppercase()} 
-                ${opponent.name} = ${playerTwoHand.uppercase()}
+                -> ${this.name} = ${playerOneHand.uppercase()} 
+                -> ${opponent.name} = ${playerTwoHand.uppercase()}
                 ||****** ${this.name} WIN ******||
             """.trimIndent())
             this.score++
             println("""
                 --------- SCORE ----------
-                ${this.name} = ${this.score}   ||   ${opponent.name} = ${opponent.score}
+                ${this.name} = ${this.score} || ${opponent.name} = ${opponent.score}
                 ==========================
             """.trimIndent())
         } else {
             Utility.getHeaderGame()
             println("""
-                ${this.name} = ${playerOneHand.uppercase()} 
-                ${opponent.name} = ${playerTwoHand.uppercase()}
+                -> ${this.name} = ${playerOneHand.uppercase()} 
+                -> ${opponent.name} = ${playerTwoHand.uppercase()}
                 ||****** ${opponent.name} WIN ******||
             """.trimIndent())
             opponent.score++
             println("""
                 --------- SCORE ----------
-                ${this.name} = ${this.score}    ||    ${opponent.name} = ${opponent.score}
+                ${this.name} = ${this.score} || ${opponent.name} = ${opponent.score}
                 ==========================
             """.trimIndent())
         }

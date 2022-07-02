@@ -15,9 +15,7 @@ class App {
                 when(userKeyword){
                     "1" -> App().twoPlayer()
                     "2" -> App().vsBot()
-                    "3" -> {
-                        break@loopI
-                    }
+                    "3" -> break@loopI
                     else -> println("Pilihan salah, pilihan menu hanya 1 - 3 :)")
                 }
                 isContinueMenu = Utility.getYesOrNo("Mau balik ke menu?")
@@ -74,6 +72,6 @@ class App {
             playerSatu.attack(playerBot)
             isKeepPlaying = Utility.getYesOrNo("Mau main lagi?")
         }
-
     }
+
 }
