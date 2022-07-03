@@ -21,6 +21,16 @@ object Utility {
         """.trimIndent())
     }
 
+    fun getHandMenu(){
+        getHeaderGame()
+        for ( value in Hand.handNameEng){
+            println("$value  ")
+        }
+        println("--UPPERCASE Or lowercase--")
+        println("----English Or Bahasa-----")
+        println("---Space doesn't matter---")
+    }
+
     fun getSayGoodBye(){
         val y = 25
         for (baris in 0..y){
