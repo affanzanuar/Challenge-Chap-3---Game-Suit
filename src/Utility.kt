@@ -1,11 +1,7 @@
 object Utility {
     fun getHeaderGame(){
-        val y = 25
-        for (baris in 0..y){
-            println()
-        }
+        clearScreen()
         println("""
-            
             ==========================
             GAME SUIT TERMINAL VERSION
             ==========================
@@ -23,7 +19,7 @@ object Utility {
 
     fun getHandMenu(){
         getHeaderGame()
-        for ( value in Hand.handNameEng){
+        for ( value in Hand.handInMenu){
             println("$value  ")
         }
         println("\n--UPPERCASE Or lowercase--")
@@ -32,10 +28,7 @@ object Utility {
     }
 
     fun getSayGoodBye(){
-        val y = 25
-        for (baris in 0..y){
-            println()
-        }
+        clearScreen()
         val x = 5
         println()
         for ( baris in 1..2*x ){
@@ -80,18 +73,26 @@ object Utility {
             "ngak" , "nga" , "nggga" , "noway", "keluaraja" , "quitaja" , "keluar" , "quit" , "males" , "nda" ,
             "menuaja" , "kemenuaja" , "maubobok" , "maubobo" , "mautidur" , "maumakan" , "maumakandulu" , "maubobodulu",
             "ngk" , "nggk" , "nggakdulu" , "ndakdulu" , "ndadulu" , "dadah" , "bye" ,  "byebye", "noo", "nooo" , "ge",
-            "ghe" , "henteu" , "ora" , "gah" , "q" , "exit" , "engga" , "mohah"
-
+            "ghe" , "henteu" , "ora" , "gah" , "q" , "exit" , "engga" , "mohah" , "ogah" , "oga" , "ogahah" , "malesbgt",
+            "malesbanget"
         )
+
         print("$message : ")
         var inputUser = readLine()?.lowercase()?.trim()?.replace(" ","")
             ?.replace("-","")
         while (inputUser !in yesWord && inputUser !in noWord){
-            println("Ngga ngerti SABRINA wkwk ")
+            println("Hah, ngga ngerti SABRINA. awokwok ")
             print("Maksudnyaaaa, $message : ")
             inputUser = readLine()?.lowercase()?.trim()?.replace(" ","")
                 ?.replace("-","")
         }
         return inputUser in yesWord
+    }
+
+    private fun clearScreen(){
+        val y = 16
+        for (baris in 0..y){
+            println()
+        }
     }
 }
