@@ -5,7 +5,7 @@ object Hand {
         HandType.C.nama
     )
 
-    var handNameEng = listOf("ROCK  =>  batu", "PAPER   =>  kertas", "SCISSOR   =>  gunting")
+    var handNameEng = listOf("|| ROCK  =>  batu", "|| PAPER   =>  kertas", "|| SCISSOR   =>  gunting")
 
     fun getResult (message : String) : String {
         print(message)

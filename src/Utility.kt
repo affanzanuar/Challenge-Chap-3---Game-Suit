@@ -28,7 +28,7 @@ object Utility {
         }
         println("--UPPERCASE Or lowercase--")
         println("----English Or Bahasa-----")
-        println("---Space doesn't matter---")
+        println("-Whitespace doesnt matter-")
     }
 
     fun getSayGoodBye(){
@@ -56,13 +56,32 @@ object Utility {
     }
 
     fun getYesOrNo(message : String) : Boolean{
-        print("$message (y/n) : ")
-        var inputUser = readLine()?.lowercase()?.trim()
-        while (inputUser != "y" && inputUser != "n"){
-            println("pilih y atau n saja, jangan yg lain :) ")
-            print("$message (y/n) : ")
-            inputUser = readLine()?.lowercase()?.trim()
+        val yesWord = setOf(
+            "ya" , "iyaa" , "okey" , "iyaaa" , "iya" , "yes" , "oke" , "baik" , "okay" , "okai",
+            "setuju", "yip" , "yeah" , "ok" , "baiklah" , "baik" , "betul" , "ia" , "mau" , "okei" ,
+            "okee" , "yoi" , "yoyoi" , "benar" , "maudong" , "okedeh" , "okeideh" , "maudeh" , "y",
+            "berkenan" , "ys" , "yeap" , "okemau" , "yamau" , "iyamau" , "want" , "ye" , "agree",
+            "iyadeh" , "yadeh" , "key" , "aye" , "ay" , "okeee" , "okke" , "yuk" , "yok" , "lanjut" ,
+            "okkay" , "boleh" , "bolehyok" , "gas" , "gasss" , "gaskeun" , "cocok" , "bolehdeh" , "gasyok" ,
+            "yokdah" , "gasdah" , "ayok" , "ayuk" , "ayokdah" , "ayukdah" , "yaudahlanjut" , "yaudahayok" ,
+            "ayo" , "ayodah" , "hayuk" , "hayok" , "sini", "main" , "maen" , "lagi" , "lagidong" , "o.k" ,
+            "o.k."
+        )
+
+        val noWord = setOf(
+            "enggak" , "ngga" , "nggamau" , "enggamau" , "tidak" , "tidakmau" , "nggaduludeh",
+            "nggadulu" , "g" , "gak" , "ga" , "no" , "n" , "enggaak" , "enggakah" , "nggaah" , "nggakah",
+            "nanti" , "nantidulu" , "nantiduluaja" , "kagak" , "gk" , "tdk" , "tdak" , "nggak" , "nggakmau" ,
+            "disagree" , "nantideh" , "gakmau" , "gmau" , "gkmau" , "gamau" , "nonono" , "endak" , "ndak" ,
+            "ndakmau" , "endakmau"
+        )
+        print("$message : ")
+        var inputUser = readLine()?.lowercase()?.trim()?.replace(" ","")
+        while (inputUser !in yesWord && inputUser !in noWord){
+            println("SABRINA ngga ngerti, coba keyword lain ya :) ")
+            print("$message : ")
+            inputUser = readLine()?.lowercase()?.trim()?.replace(" ","")
         }
-        return inputUser == "y"
+        return inputUser in yesWord
     }
 }
