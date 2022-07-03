@@ -41,12 +41,7 @@ class App {
 
         var isKeepPlaying = true
         while (isKeepPlaying){
-            Utility.getHeaderGame()
-            for (value in Hand.handName){
-                println("         $value")
-            }
-            println("--UPPERCASE Or lowercase--")
-            println("---Space doesn't matter---")
+            Utility.getHandMenu()
             playerSatu.attack(playerDua)
             isKeepPlaying = Utility.getYesOrNo("Mau main lagi?")
         }
@@ -65,12 +60,7 @@ class App {
 
         var isKeepPlaying = true
         while (isKeepPlaying){
-            Utility.getHeaderGame()
-            for (value in Hand.handName){
-                println("         $value")
-            }
-            println("--UPPERCASE Or lowercase--")
-            println("---Space doesn't matter---")
+            Utility.getHandMenu()
             playerSatu.attack(playerBot)
             isKeepPlaying = Utility.getYesOrNo("Mau main lagi?")
         }
