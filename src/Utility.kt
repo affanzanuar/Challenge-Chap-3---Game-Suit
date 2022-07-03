@@ -26,7 +26,7 @@ object Utility {
         for ( value in Hand.handNameEng){
             println("$value  ")
         }
-        println("--UPPERCASE Or lowercase--")
+        println("\n--UPPERCASE Or lowercase--")
         println("----English Or Bahasa-----")
         println("-Whitespace doesnt matter-")
     }
@@ -65,7 +65,10 @@ object Utility {
             "okkay" , "boleh" , "bolehyok" , "gas" , "gasss" , "gaskeun" , "cocok" , "bolehdeh" , "gasyok" ,
             "yokdah" , "gasdah" , "ayok" , "ayuk" , "ayokdah" , "ayukdah" , "yaudahlanjut" , "yaudahayok" ,
             "ayo" , "ayodah" , "hayuk" , "hayok" , "sini", "main" , "maen" , "lagi" , "lagidong" , "o.k" ,
-            "o.k."
+            "o.k." , "okeey", "bole" , "yas" , "bleh" , "gasken" , "kuy" , "skuy" , "maulah" , "mainsini" , "hai" ,
+            "cus" , "blh" , "maudah" , "gass" , "yo" , "yap" , "iyah" , "yah" , "okelah" , "oklah" , "gasyuk",
+            "yaa" , "yaaa" , "bolh" , "enya" , "woke" , "wokey" , "wokei" , "yuah" , "mmau" , "mauu" , "maau" ,
+            "bolehlah" , "bolehdong"
         )
 
         val noWord = setOf(
@@ -73,14 +76,21 @@ object Utility {
             "nggadulu" , "g" , "gak" , "ga" , "no" , "n" , "enggaak" , "enggakah" , "nggaah" , "nggakah",
             "nanti" , "nantidulu" , "nantiduluaja" , "kagak" , "gk" , "tdk" , "tdak" , "nggak" , "nggakmau" ,
             "disagree" , "nantideh" , "gakmau" , "gmau" , "gkmau" , "gamau" , "nonono" , "endak" , "ndak" ,
-            "ndakmau" , "endakmau"
+            "ndakmau" , "endakmau" , "na" , "nolah" , "nantiaja" , "nei" , "nda" , "emoh" , "moh" , "ngggak",
+            "ngak" , "nga" , "nggga" , "noway", "keluaraja" , "quitaja" , "keluar" , "quit" , "males" , "nda" ,
+            "menuaja" , "kemenuaja" , "maubobok" , "maubobo" , "mautidur" , "maumakan" , "maumakandulu" , "maubobodulu",
+            "ngk" , "nggk" , "nggakdulu" , "ndakdulu" , "ndadulu" , "dadah" , "bye" ,  "byebye", "noo", "nooo" , "ge",
+            "ghe" , "henteu" , "ora" , "gah" , "q" , "exit" , "engga" , "mohah"
+
         )
         print("$message : ")
         var inputUser = readLine()?.lowercase()?.trim()?.replace(" ","")
+            ?.replace("-","")
         while (inputUser !in yesWord && inputUser !in noWord){
-            println("SABRINA ngga ngerti, coba keyword lain ya :) ")
-            print("$message : ")
+            println("Ngga ngerti SABRINA wkwk ")
+            print("Maksudnyaaaa, $message : ")
             inputUser = readLine()?.lowercase()?.trim()?.replace(" ","")
+                ?.replace("-","")
         }
         return inputUser in yesWord
     }
