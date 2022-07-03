@@ -13,54 +13,40 @@ abstract class Person {
         val playerOneHand = this.playerHand()
         val playerTwoHand = opponent.playerHand()
 
-        if (playerOneHand==playerTwoHand){
+        fun printHandResult(){
             Utility.getHeaderGame()
             println("""
                 -> ${this.name} = ${playerOneHand.uppercase()} 
                 -> ${opponent.name} = ${playerTwoHand.uppercase()}
-                 
-                ||******** DRAW ********||
-                
             """.trimIndent())
+        }
+
+        fun printLiveScore(){
             println("""
                 --------- SCORE ----------
                 ${this.name} = ${this.score} || ${opponent.name} = ${opponent.score}
                 ==========================
             """.trimIndent())
+        }
+
+        if (playerOneHand==playerTwoHand){
+            printHandResult()
+            println("\n||******** DRAW ********||\n")
+            printLiveScore()
         } else if (
             playerOneHand == a && playerTwoHand == b
             || playerOneHand == b && playerTwoHand == c
             || playerOneHand == c && playerTwoHand == a
         ) {
-            Utility.getHeaderGame()
-            println("""
-                -> ${this.name} = ${playerOneHand.uppercase()} 
-                -> ${opponent.name} = ${playerTwoHand.uppercase()}
-                
-                ||****** ${this.name} WIN ******||
-                
-            """.trimIndent())
+            printHandResult()
+            println("\n||****** ${this.name} WIN ******||\n")
             this.score++
-            println("""
-                --------- SCORE ----------
-                ${this.name} = ${this.score} || ${opponent.name} = ${opponent.score}
-                ==========================
-            """.trimIndent())
+            printLiveScore()
         } else {
-            Utility.getHeaderGame()
-            println("""
-                -> ${this.name} = ${playerOneHand.uppercase()} 
-                -> ${opponent.name} = ${playerTwoHand.uppercase()}
-                
-                ||****** ${opponent.name} WIN ******||
-                
-            """.trimIndent())
+            printHandResult()
+            println("\n||****** ${opponent.name} WIN ******||\n")
             opponent.score++
-            println("""
-                --------- SCORE ----------
-                ${this.name} = ${this.score} || ${opponent.name} = ${opponent.score}
-                ==========================
-            """.trimIndent())
+            printLiveScore()
         }
     }
 }
