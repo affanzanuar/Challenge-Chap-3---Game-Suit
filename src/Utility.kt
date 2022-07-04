@@ -2,18 +2,18 @@ object Utility {
     fun getHeaderGame(){
         clearScreen()
         println("""
-            ==========================
-            GAME SUIT TERMINAL VERSION
-            ==========================
+            ==================================================================
+            |                   GAME SUIT TERMINAL VERSION                   |
+            ==================================================================
         """.trimIndent())
     }
 
     fun getMainMenu(){
         println("""
-            |      1 TWO PLAYER      |
-            |      2 VS SABRINA      |
-            |         3 EXIT         |
-            +------------------------+
+            |                    1  TWO PLAYER                               |
+            |                         2  VS SABRINA                          |
+            |                             3  EXIT / KELUAR                   |
+            +----------------------------------------------------------------+
         """.trimIndent())
     }
 
@@ -22,9 +22,24 @@ object Utility {
         for ( value in Hand.handInMenu){
             println("$value  ")
         }
-        println("\n--UPPERCASE Or lowercase--")
-        println("----English Or Bahasa-----")
-        println("-Whitespace doesnt matter-")
+
+        println("\n----------------    UPPERCASE Or lowercase      ------------------")
+        println("----------------       English Or Bahasa        ------------------")
+        println("----------------   Whitespace doesn't matter    ------------------")
+    }
+
+    fun getGameOver(){
+        println("""
+                  
+                        @@@@@@     @@@     @@     @@   @@@@@@@ 
+                       @@         @@ @@    @@@   @@@   @@
+                      @@         @@   @@   @@@@ @@@@   @@
+                      @@   @@@   @@   @@   @@  @  @@   @@@@@   
+                      @@    @@   @@@@@@@   @@     @@   @@          ___       ___ 
+                       @@   @@   @@   @@   @@     @@   @@         |   | \  / |_  |__
+                        @@@@@@   @@   @@   @@     @@   @@@@@@@    |___|  \/  |__ |
+               
+            """.trimIndent())
     }
 
     fun getSayGoodBye(){

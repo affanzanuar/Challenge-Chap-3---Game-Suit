@@ -8,88 +8,101 @@ abstract class Person {
     private var b = HandType.B.nama
     private var c = HandType.C.nama
 
-    private var healthDraw = arrayOf(1.5 , 2.5 , 3.5 , 4.5)
-    private var randomHealthPlayer1 = healthDraw.random()
-    private var randomHealthOpponent = healthDraw.random()
-
-    private var healthWinOrLose = arrayOf(31.5 , 35.5 , 37.5 )
-    private var randomHealthWinOrLose = healthWinOrLose.random()
+    private var healthRegen = arrayOf(6.5 , 7.5 , 8.5 , 9.5).random()
+    private var healthLose = arrayOf(31.5 , 35.5 , 37.5 ).random()
 
     fun attack(opponent : Person){
-        println("\nSaatnya ${this.name} melawan ${opponent.name}\n")
+        println("\n                Saatnya ${this.name} melawan ${opponent.name}\n")
 
-        fun printLiveResult(){
-            println("""
-                ------ PLAYER STATS ------
-                Name   : ${this.name}   || ${opponent.name}
-                Win    : ${this.score}       || ${opponent.score}
-                Health : ${this.health}   || ${opponent.health}
-                ==========================
-            """.trimIndent())
+        fun getLiveResult(){
+            println(">> PLAYER STATS")
+            println("__________________________________________________________________")
+            System.out.printf("Nama   :  %-25s", this.name)
+            System.out.printf("||   %-25s", opponent.name)
+            println("|")
+            System.out.printf("Win    :  %-25s", this.score)
+            System.out.printf("||   %-25s", opponent.score)
+            println("|")
+            System.out.printf("Health :  %-8s", this.health)
+            System.out.printf(" /    100.0      ||   %-9s", opponent.health)
+            print("/    100.0      |")
+            println("\n==================================================================")
+
+            println()
         }
-        printLiveResult()
+        getLiveResult()
 
         val playerOneHand = this.playerHand()
         val playerTwoHand = opponent.playerHand()
 
-        fun printHandResult(){
+        fun getHandResult(){
             Utility.getHeaderGame()
             println("""
+                
                 -> ${this.name} = ${playerOneHand.uppercase()} 
                 -> ${opponent.name} = ${playerTwoHand.uppercase()}
             """.trimIndent())
         }
 
+        fun maxHealth(){
+            if (this.health >=100.0 ){
+                this.health = 100.0
+            }
+            if (opponent.health >= 100.0){
+                opponent.health = 100.0
+            }
+        }
+
         if (playerOneHand==playerTwoHand){
-            printHandResult()
-            println("\n||******** DRAW ********||\n")
-            this.health += randomHealthPlayer1
-            opponent.health += randomHealthOpponent
-            printLiveResult()
+            getHandResult()
+            println("\n||******************           DRAW           ******************||\n")
+            this.health += healthRegen
+            opponent.health += healthRegen
+            maxHealth()
+            getLiveResult()
         } else if (
             playerOneHand == a && playerTwoHand == b
             || playerOneHand == b && playerTwoHand == c
             || playerOneHand == c && playerTwoHand == a
         ) {
-            printHandResult()
-            println("\n||****** ${this.name} WIN ******||\n")
+            getHandResult()
+            println("\n      ||****************** ${this.name} WIN ******************||\n")
             this.score++
-            this.health += randomHealthPlayer1
-            opponent.health -= randomHealthWinOrLose
-            printLiveResult()
+            this.health += healthRegen
+            opponent.health -= healthLose
+            maxHealth()
+            getLiveResult()
         } else {
-            printHandResult()
-            println("\n||****** ${opponent.name} WIN ******||\n")
-            opponent.health += randomHealthOpponent
-            this.health -= randomHealthWinOrLose
+            getHandResult()
+            println("\n      ||****************** ${opponent.name} WIN ******************||\n")
+            opponent.health += healthRegen
+            this.health -= healthLose
             opponent.score++
-            printLiveResult()
+            maxHealth()
+            getLiveResult()
         }
 
-        if (this.health <=0 || opponent.health <=0){
+        if (this.health <=0.0 || opponent.health <=0.0){
             Utility.getHeaderGame()
-            println("""
-                
-                    ******************
-                |####### GAME OVER #######|
-                    ******************
-                      
-            """.trimIndent())
-
+            Utility.getGameOver()
             if (this.health<=0){
+                this.health=0.0
                 println("""
                          ${opponent.name}
                           WIN THIS MATCH
-                    ~~~~~~~~~~~~~~~~~~~~~~~~~
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                     
                 """.trimIndent())
+                getLiveResult()
             } else {
+                opponent.health=0.0
                 println("""
                          ${this.name}
                           WIN THIS MATCH
-                    ~~~~~~~~~~~~~~~~~~~~~~~~~~
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                     
                 """.trimIndent())
+                getLiveResult()
             }
 
             this.health = 100.00
