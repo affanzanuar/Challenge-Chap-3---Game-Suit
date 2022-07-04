@@ -1,4 +1,4 @@
-class Bot(name : String) : Person() {
+class Bot(name : String) : PlayerEngine() {
 
     override var name: String
         get() = super.name.uppercase().trim()
@@ -10,7 +10,7 @@ class Bot(name : String) : Person() {
 
     @Override
     override fun playerHand(): String {
-        return playerHand(Hand.handName)
+        return playerHand(Utility.handName)
     }
 
     //Overloading

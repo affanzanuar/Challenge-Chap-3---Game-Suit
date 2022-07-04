@@ -1,4 +1,31 @@
 object Utility {
+
+    var handName = arrayOf(
+        HandType.A.nama,
+        HandType.B.nama,
+        HandType.C.nama
+    )
+
+    var handInMenu = listOf(
+        "                   * ROCK   =>  batu",
+        "                   * PAPER   =>  kertas",
+        "                   * SCISSOR   =>  gunting")
+
+    fun getResult (message : String) : String {
+        print(message)
+        var userKeyword = readLine()?.lowercase()?.trim()?.replace(" ","")
+            ?.replace("\t","")?.replace("rock","batu")
+            ?.replace("scissor", "gunting")?.replace("paper","kertas")
+
+        while (userKeyword !in handName){
+            print("Hanya boleh pilih salah satu di atas : ")
+            userKeyword = readLine()?.lowercase()?.trim()?.replace(" ","")
+                ?.replace("\t","")?.replace("rock","batu")
+                ?.replace("scissor", "gunting")?.replace("paper","kertas")
+        }
+        return userKeyword!!
+    }
+
     fun getHeaderGame(){
         clearScreen()
         println("""
@@ -19,7 +46,7 @@ object Utility {
 
     fun getHandMenu(){
         getHeaderGame()
-        for ( value in Hand.handInMenu){
+        for ( value in handInMenu){
             println("$value  ")
         }
 
@@ -88,18 +115,18 @@ object Utility {
             "ngak" , "nga" , "nggga" , "noway", "keluaraja" , "quitaja" , "keluar" , "quit" , "males" , "nda" ,
             "menuaja" , "kemenuaja" , "maubobok" , "maubobo" , "mautidur" , "maumakan" , "maumakandulu" , "maubobodulu",
             "ngk" , "nggk" , "nggakdulu" , "ndakdulu" , "ndadulu" , "dadah" , "bye" ,  "byebye", "noo", "nooo" , "ge",
-            "ghe" , "henteu" , "ora" , "gah" , "q" , "exit" , "engga" , "mohah" , "ogah" , "oga" , "ogahah" , "malesbgt",
-            "malesbanget"
+            "ghe" , "henteu" , "ora" , "gah" , "q" , "exit" , "engga" , "mohah" , "ogah" , "oga" , "ogahah" ,
+            "malesbgt", "malesbanget"
         )
 
         print("$message : ")
-        var inputUser = readLine()?.lowercase()?.trim()?.replace(" ","")?.replace("\t","")
-            ?.replace("-","")
+        var inputUser = readLine()?.lowercase()?.trim()?.replace(" ","")
+            ?.replace("\t","")?.replace("-","")
         while (inputUser !in yesWord && inputUser !in noWord){
             println("Hah, ngga ngerti SABRINA. awokwok ")
             print("Maksudnyaaaa, $message : ")
-            inputUser = readLine()?.lowercase()?.trim()?.replace(" ","")?.replace("\t","")
-                ?.replace("-","")
+            inputUser = readLine()?.lowercase()?.trim()?.replace(" ","")
+                ?.replace("\t","")?.replace("-","")
         }
         return inputUser in yesWord
     }
