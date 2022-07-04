@@ -6,7 +6,7 @@ object Utility {
         HandType.C.nama
     )
 
-    var handInMenu = listOf(
+    private var handInMenu = listOf(
         "                   * ROCK   =>  batu",
         "                   * PAPER   =>  kertas",
         "                   * SCISSOR   =>  gunting")
