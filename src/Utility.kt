@@ -78,12 +78,12 @@ object Utility {
         )
 
         print("$message : ")
-        var inputUser = readLine()?.lowercase()?.trim()?.replace(" ","")
+        var inputUser = readLine()?.lowercase()?.trim()?.replace(" ","")?.replace("\t","")
             ?.replace("-","")
         while (inputUser !in yesWord && inputUser !in noWord){
             println("Hah, ngga ngerti SABRINA. awokwok ")
             print("Maksudnyaaaa, $message : ")
-            inputUser = readLine()?.lowercase()?.trim()?.replace(" ","")
+            inputUser = readLine()?.lowercase()?.trim()?.replace(" ","")?.replace("\t","")
                 ?.replace("-","")
         }
         return inputUser in yesWord

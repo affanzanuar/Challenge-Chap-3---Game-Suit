@@ -6,6 +6,7 @@ class Bot(name : String) : Person() {
             super.name = value
         }
     override var score : Int = 0
+    override var health: Double = 100.00
 
     @Override
     override fun playerHand(): String {
@@ -20,5 +21,6 @@ class Bot(name : String) : Person() {
     init {
         super.name = name
         super.score = score
+        super.health = health
     }
 }
