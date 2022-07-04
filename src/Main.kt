@@ -35,7 +35,7 @@ class Main {
         private lateinit var playerDua : Person
         private lateinit var playerBot : Bot
 
-        private fun inputNamePlayerSatu(){
+        private fun inputNamePlayerOne(){
             print("Masukkan nama Player 1 : ")
             var namaPlayerSatu = readLine()!!.uppercase().trim().replace(" ","")
                 .replace("\t","")
@@ -46,9 +46,7 @@ class Main {
         }
 
         fun twoPlayer(){
-
-            inputNamePlayerSatu()
-
+            inputNamePlayerOne()
             print("Masukkan nama Player 2 : ")
             var namaPlayerDua = readLine()!!.uppercase().trim().replace(" ","")
                 .replace("\t","")
@@ -66,9 +64,7 @@ class Main {
         }
 
         fun vsBot(){
-
-            inputNamePlayerSatu()
-
+            inputNamePlayerOne()
             playerBot = Bot("Bot")
             playerBot.name = "sabrina"
 
