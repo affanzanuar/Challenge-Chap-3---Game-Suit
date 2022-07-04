@@ -5,7 +5,10 @@ object Hand {
         HandType.C.nama
     )
 
-    var handInMenu = listOf(" * ROCK   =>  batu", " * PAPER   =>  kertas", " * SCISSOR   =>  gunting")
+    var handInMenu = listOf(
+        "                   * ROCK   =>  batu",
+        "                   * PAPER   =>  kertas",
+        "                   * SCISSOR   =>  gunting")
 
     fun getResult (message : String) : String {
         print(message)
