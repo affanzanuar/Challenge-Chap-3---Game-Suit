@@ -10,10 +10,10 @@ class App {
                 Utility.getHeaderGame()
                 Utility.getMainMenu()
                 print("\nMasukkan pilihan anda : ")
-                val userKeyword = readLine()?.lowercase()?.trim()?.replace("satu","1")
-                    ?.replace("one","1")?.replace("dua","2")
-                    ?.replace("two","2")?.replace("tiga","3")
-                    ?.replace("three","3")
+                val userKeyword = readLine()?.lowercase()?.trim()?.replace("\t","")
+                    ?.replace("satu","1")?.replace("one","1")
+                    ?.replace("dua","2")?.replace("two","2")
+                    ?.replace("tiga","3")?.replace("three","3")
                 println()
                 when(userKeyword){
                     "1" -> App().twoPlayer()
@@ -29,14 +29,14 @@ class App {
 
     fun twoPlayer(){
         print("Masukkan nama Player 1 : ")
-        var namaPlayerSatu = readLine()!!.uppercase().trim().replace(" ","")
+        var namaPlayerSatu = readLine()!!.uppercase().trim().replace(" ","").replace("\t","")
         if (namaPlayerSatu.isBlank()){
             namaPlayerSatu = "Anonymous_1"
         }
         val playerSatu = Player(namaPlayerSatu)
 
         print("Masukkan nama Player 2 : ")
-        var namaPlayerDua = readLine()!!.uppercase().trim().replace(" ","")
+        var namaPlayerDua = readLine()!!.uppercase().trim().replace(" ","").replace("\t","")
         if (namaPlayerDua.isBlank()){
             namaPlayerDua = "Anonymous_2"
         }
@@ -52,7 +52,7 @@ class App {
 
     fun vsBot(){
         print("Masukkan nama Player : ")
-        var namaPlayerSatu = readLine()!!.uppercase().trim().replace(" ","")
+        var namaPlayerSatu = readLine()!!.uppercase().trim().replace(" ","").replace("\t","")
         if (namaPlayerSatu.isBlank()){
             namaPlayerSatu = "Anonymous_1"
         }

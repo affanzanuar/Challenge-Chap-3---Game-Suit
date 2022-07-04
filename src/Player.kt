@@ -1,6 +1,7 @@
 class Player(name : String) : Person() {
 
     override var score : Int = 0
+    override var health: Double = 100.00
 
     @Override
     override fun playerHand(): String {
@@ -10,5 +11,6 @@ class Player(name : String) : Person() {
     init {
         super.name = name
         super.score = score
+        super.health = health
     }
 }
