@@ -1,5 +1,9 @@
 object Utility {
 
+    val answer1 = setOf("1" , "satu" , "one" , "twoplayer")
+    val answer2 = setOf("2" , "dua" , "two" , "vsbot" , "vssabrina" , "singleplayer")
+    val answer3 = setOf("3" , "tiga" , "three" , "quit" , "exit" , "q" , "quit" , "keluar")
+
     var handName = arrayOf(
         HandType.A.nama,
         HandType.B.nama,
@@ -103,7 +107,7 @@ object Utility {
             "o.k." , "okeey", "bole" , "yas" , "bleh" , "gasken" , "kuy" , "skuy" , "maulah" , "mainsini" , "hai" ,
             "cus" , "blh" , "maudah" , "gass" , "yo" , "yap" , "iyah" , "yah" , "okelah" , "oklah" , "gasyuk",
             "yaa" , "yaaa" , "bolh" , "enya" , "woke" , "wokey" , "wokei" , "yuah" , "mmau" , "mauu" , "maau" ,
-            "bolehlah" , "bolehdong"
+            "bolehlah" , "bolehdong", "\n"
         )
 
         val noWord = setOf(
@@ -123,7 +127,7 @@ object Utility {
         var inputUser = readLine()?.lowercase()?.trim()?.replace(" ","")
             ?.replace("\t","")?.replace("-","")
         while (inputUser !in yesWord && inputUser !in noWord){
-            println("Hah, ngga ngerti SABRINA. awokwok ")
+            println("\nHah, ngga ngerti SABRINA. awokwok ")
             print("Maksudnyaaaa, $message : ")
             inputUser = readLine()?.lowercase()?.trim()?.replace(" ","")
                 ?.replace("\t","")?.replace("-","")

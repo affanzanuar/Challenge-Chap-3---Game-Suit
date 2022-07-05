@@ -8,18 +8,14 @@ fun main() {
     loopI@ while (isContinueMenu){
         Utility.getHeaderGame()
         Utility.getMainMenu()
-        print("\nMasukkan pilihan anda : ")
+        print("\nMasukkan pilihan anda (1-3) : ")
         val userKeyword = readLine()?.lowercase()?.trim()?.replace("\t","")
-            ?.replace("satu","1")?.replace("one","1")
-            ?.replace("dua","2")?.replace("two","2")
-            ?.replace("tiga","3")?.replace("three","3")
-            ?.replace("exit","3")?.replace("keluar","3")
-            ?.replace("quit","3")?.replace("q","3")
+            ?.replace(" ","")
         println()
         when(userKeyword){
-            "1" -> twoPlayer()
-            "2" -> vsBot()
-            "3" -> break@loopI
+            in Utility.answer1 -> twoPlayer()
+            in Utility.answer2 -> vsBot()
+            in Utility.answer3 -> break@loopI
             else -> println("Pilihan salah, pilihan menu hanya (1 - 3 / satu - tiga / one - three) :)")
         }
         isContinueMenu = Utility.getYesOrNo("Mau balik ke menu?")
