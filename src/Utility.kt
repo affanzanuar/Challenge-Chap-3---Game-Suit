@@ -11,9 +11,9 @@ object Utility {
     )
 
     private var handInMenu = listOf(
-        "                   * ROCK   =>  batu",
-        "                   * PAPER   =>  kertas",
-        "                   * SCISSOR   =>  gunting")
+        "                             ROCK   =>   batu",
+        "                            PAPER   =>   kertas",
+        "                          SCISSOR   =>   gunting")
 
     fun getResult (message : String) : String {
         print(message)
@@ -33,18 +33,20 @@ object Utility {
     fun getHeaderGame(){
         clearScreen()
         println("""
-            ==================================================================
-            |                   GAME SUIT TERMINAL VERSION                   |
-            ==================================================================
+            ===========================================================================
+            |                       GAME SUIT TERMINAL VERSION                        |
+            ===========================================================================
         """.trimIndent())
     }
 
     fun getMainMenu(){
         println("""
-            |                    1  TWO PLAYER                               |
-            |                         2  VS SABRINA                          |
-            |                             3  EXIT / KELUAR                   |
-            +----------------------------------------------------------------+
+            |                                                                         |
+            |                        1  TWO PLAYER                                    |
+            |                             2  VS SABRINA                               |
+            |                                 3  EXIT / KELUAR                        |
+            |                                                                         |
+            +-------------------------------------------------------------------------+
         """.trimIndent())
     }
 
@@ -54,43 +56,43 @@ object Utility {
             println("$value  ")
         }
 
-        println("\n----------------    UPPERCASE Or lowercase      ------------------")
-        println("----------------       English Or Bahasa        ------------------")
-        println("----------------   Whitespace doesn't matter    ------------------")
+        println("\n---------------------     UPPERCASE Or lowercase     ----------------------")
+        println("---------------------       English Or Bahasa        ----------------------")
+        println("---------------------   Whitespace doesn't matter    ----------------------")
     }
 
     fun getGameOver(){
         println("""
                   
-                        @@@@@@     @@@     @@     @@   @@@@@@@ 
-                       @@         @@ @@    @@@   @@@   @@
-                      @@         @@   @@   @@@@ @@@@   @@
-                      @@   @@@   @@   @@   @@  @  @@   @@@@@   
-                      @@    @@   @@@@@@@   @@     @@   @@          ___       ___  __
-                       @@   @@   @@   @@   @@     @@   @@         |   | \  / |_  |__|
-                        @@@@@@   @@   @@   @@     @@   @@@@@@@    |___|  \/  |__ |   \
+                        @@@@@@    @@@    @@     @@  @@@@@@@     @@@@@   @@   @@  @@@@@@@  @@@@@@
+                       @@        @@ @@   @@@   @@@  @@         @@   @@  @@   @@  @@       @@   @@
+                      @@        @@   @@  @@@@ @@@@  @@         @@   @@  @@   @@  @@       @@   @@
+                      @@   @@@  @@   @@  @@  @  @@  @@@@@      @@   @@  @@   @@  @@@@@    @@  @@@
+                      @@    @@  @@@@@@@  @@     @@  @@         @@   @@  @@   @@  @@       @@@@@
+                       @@   @@  @@   @@  @@     @@  @@         @@   @@   @@ @@   @@       @@ @@@
+                        @@@@@@  @@   @@  @@     @@  @@@@@@@     @@@@@     @@@    @@@@@@@  @@  @@@
                
             """.trimIndent())
     }
 
     fun getSayGoodBye(){
-        clearScreen()
-        val x = 5
+        getHeaderGame()
+        val x = 8
         println()
         for ( baris in 1..2*x ){
             val totalSpace = if ( baris < x ) x - baris else baris - x
             val totalKolom = if ( baris < x ) baris else (2*x) - baris
             for (space in 1 .. totalSpace) {
-                print("   ")
+                print("     ")
             }
             for (kolom in 1 .. totalKolom) {
-                print("*     ")
+                print("*         ")
             }
             println()
         }
         println("""
-            === SEE YOU NEXT TIME! ===
-            == SABRINA UNDUR DIRI:) ==
+            =========================== SEE YOU NEXT TIME! ============================
+            ========================== SABRINA UNDUR DIRI:) ===========================
         """.trimIndent())
     }
 
@@ -140,5 +142,35 @@ object Utility {
         for (baris in 0..y){
             println()
         }
+    }
+
+    fun rockPatternString(): String {
+        return """
+                                 *  *  *     
+                              *  *  *  *  *  
+                              *  *  *  *  *  
+                              *  *  *  *  *  
+                                 *  *  *   
+        """.trimMargin()
+    }
+
+    fun paperPatternString(): String {
+        return """
+                               *  *  *  *  *
+                              *  *  *  *  *
+                             *  *  *  *  *
+                            *  *  *  *  *
+                           *  *  *  *  *
+        """.trimMargin()
+    }
+
+    fun scissorPatternString(): String {
+        return """
+                              *           *
+                                 *     * 
+                                    *
+                              *  *     *  *
+                              *           *
+        """.trimMargin()
     }
 }

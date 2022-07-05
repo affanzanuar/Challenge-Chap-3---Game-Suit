@@ -12,23 +12,36 @@ abstract class PlayerEngine {
     private var healthLose = arrayOf(31.5 , 35.5 , 37.5 ).random()
 
     fun attack(opponent : PlayerEngine){
-        println("\n                Saatnya ${this.name} melawan ${opponent.name}\n")
+        println("\n                       Saatnya ${this.name} melawan ${opponent.name}\n")
+
+//        var rockPattern = Utility.rockPatternString
+//        var paperPattern = Utility.paperPatter()
+//        var scissorPattern = Utility.scissorPattern()
+
+        val patternImage = mapOf(
+            a to Utility.rockPatternString(),
+            b to Utility.scissorPatternString(),
+            c to Utility.paperPatternString()
+        )
+
+        fun pickPattern (option : String) : String {
+            return patternImage[option]!!
+        }
 
         fun getLiveResult(){
-            println(">> PLAYER STATS")
-            println("__________________________________________________________________")
-            print(String.format("Nama   :  %-25s", this.name))
+            println("\n>> PLAYER STATS \\")
+            println("-----------------\\__________________________________________________________")
+            print(String.format("| Nama   |  %-25s", this.name))
             print(String.format("||   %-25s", opponent.name))
-            println("|")
-            print(String.format("Win    :  %-25s", this.score))
+            println("        |")
+            print(String.format("| Win    |  %-25s", this.score))
             print(String.format("||   %-25s", opponent.score))
-            println("|")
-            print(String.format("Health :  %-5s", this.health))
+            println("        |")
+            print(String.format("| Health |  %-5s", this.health))
             print(String.format(" / 100.0            ||   %-6s", opponent.health))
-            print("/ 100.0            |")
+            print("/ 100.0                    |")
             println()
-            println("==================================================================")
-            println()
+            println("============================================================================")
         }
         getLiveResult()
 
@@ -37,11 +50,14 @@ abstract class PlayerEngine {
 
         fun getHandResult(){
             Utility.getHeaderGame()
-            println("""
-                
-                -> ${this.name} = ${playerOneHand.uppercase()} 
-                -> ${opponent.name} = ${playerTwoHand.uppercase()}
-            """.trimIndent())
+            println()
+
+            println(pickPattern(playerOneHand))
+            println("                                   V.S")
+            println(pickPattern(playerTwoHand))
+
+            print(String.format("             %-25s", "-> ${this.name} = ${playerOneHand.uppercase()}"))
+            print(String.format("     %-25s", "-> ${opponent.name} = ${playerTwoHand.uppercase()}\n"))
         }
 
         fun maxHealth(){
@@ -55,7 +71,7 @@ abstract class PlayerEngine {
 
         if (playerOneHand==playerTwoHand){
             getHandResult()
-            println("\n||******************           DRAW           ******************||\n")
+            print("\n                    ||*****************      DRAW      ******************||")
             this.health += healthRegen
             opponent.health += healthRegen
             maxHealth()
@@ -66,7 +82,7 @@ abstract class PlayerEngine {
             || playerOneHand == c && playerTwoHand == a
         ) {
             getHandResult()
-            println("\n      ||****************** ${this.name} WIN ******************||\n")
+            print("\n                      ||****************** ${this.name} WIN ******************||")
             this.score++
             this.health += healthRegen
             opponent.health -= healthLose
@@ -74,7 +90,7 @@ abstract class PlayerEngine {
             getLiveResult()
         } else {
             getHandResult()
-            println("\n      ||****************** ${opponent.name} WIN ******************||\n")
+            print("\n                     ||****************** ${opponent.name} WIN ******************||")
             opponent.health += healthRegen
             this.health -= healthLose
             opponent.score++
@@ -90,17 +106,13 @@ abstract class PlayerEngine {
                 println("""
                          ${opponent.name}
                           WIN THIS MATCH
-                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-                    
-                """.trimIndent())
+                """.trimMargin())
                 getLiveResult()
             } else {
                 opponent.health=0.0
                 println("""
                          ${this.name}
                           WIN THIS MATCH
-                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-                    
                 """.trimIndent())
                 getLiveResult()
             }
