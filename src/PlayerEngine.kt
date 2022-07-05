@@ -14,10 +14,6 @@ abstract class PlayerEngine {
     fun attack(opponent : PlayerEngine){
         println("\n                       Saatnya ${this.name} melawan ${opponent.name}\n")
 
-//        var rockPattern = Utility.rockPatternString
-//        var paperPattern = Utility.paperPatter()
-//        var scissorPattern = Utility.scissorPattern()
-
         val patternImage = mapOf(
             a to Utility.rockPatternString(),
             b to Utility.scissorPatternString(),
@@ -60,12 +56,18 @@ abstract class PlayerEngine {
             print(String.format("     %-25s", "-> ${opponent.name} = ${playerTwoHand.uppercase()}\n"))
         }
 
-        fun maxHealth(){
+        fun maxMinHealth(){
             if (this.health >=100.0 ){
                 this.health = 100.0
             }
             if (opponent.health >= 100.0){
                 opponent.health = 100.0
+            }
+            if (this.health <=0.0 ){
+                this.health = 0.0
+            }
+            if (opponent.health <= 0.0){
+                opponent.health = 0.0
             }
         }
 
@@ -74,7 +76,7 @@ abstract class PlayerEngine {
             print("\n                    ||*****************      DRAW      ******************||")
             this.health += healthRegen
             opponent.health += healthRegen
-            maxHealth()
+            maxMinHealth()
             getLiveResult()
         } else if (
             playerOneHand == a && playerTwoHand == b
@@ -86,7 +88,7 @@ abstract class PlayerEngine {
             this.score++
             this.health += healthRegen
             opponent.health -= healthLose
-            maxHealth()
+            maxMinHealth()
             getLiveResult()
         } else {
             getHandResult()
@@ -94,7 +96,7 @@ abstract class PlayerEngine {
             opponent.health += healthRegen
             this.health -= healthLose
             opponent.score++
-            maxHealth()
+            maxMinHealth()
             getLiveResult()
         }
 
@@ -102,18 +104,16 @@ abstract class PlayerEngine {
             Utility.getHeaderGame()
             Utility.getGameOver()
             if (this.health<=0){
-                this.health=0.0
                 println("""
                          ${opponent.name}
                           WIN THIS MATCH
                 """.trimMargin())
                 getLiveResult()
             } else {
-                opponent.health=0.0
                 println("""
                          ${this.name}
                           WIN THIS MATCH
-                """.trimIndent())
+                """.trimMargin())
                 getLiveResult()
             }
 
