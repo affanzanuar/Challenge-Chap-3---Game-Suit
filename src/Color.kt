@@ -15,4 +15,5 @@ object Color {
     const val WARNA_BIRU_BOLD = "\u001b[1;34m"
     const val WARNA_UNGU_BOLD = "\u001b[1;35m"
     const val WARNA_CYAN_BOLD = "\u001b[1;36m"
+    const val WARNA_PUTIH_BRIGHT = "\u001b[0;97m"
 }

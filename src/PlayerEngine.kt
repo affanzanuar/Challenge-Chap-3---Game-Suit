@@ -25,7 +25,7 @@ abstract class PlayerEngine {
         }
 
         fun getLiveResult(){
-            println("\n>> PLAYER STATS \\")
+            println("\n>${Color.WARNA_PUTIH_BRIGHT}> PLAYER STATS ${Color.WARNA_RESET}\\")
             println("-----------------\\__________________________________________________________")
             print(String.format("| Nama   |  %-25s", this.name))
             print(String.format("||   %-25s", opponent.name))
