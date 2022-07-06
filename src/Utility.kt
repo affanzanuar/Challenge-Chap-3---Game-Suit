@@ -11,9 +11,9 @@ object Utility {
     )
 
     private var handInMenu = listOf(
-        "                             ROCK   =>   batu",
-        "                            PAPER   =>   kertas",
-        "                          SCISSOR   =>   gunting")
+        "          ${Color.WARNA_BIRU_BOLD}                   ROCK   =>   batu",
+        "          ${Color.WARNA_KUNING_BOLD}                  PAPER   =>   kertas",
+        "          ${Color.WARNA_HIJAU_BOLD}                SCISSOR   =>   gunting${Color.WARNA_RESET}")
 
     fun getResult (message : String) : String {
         print(message)
@@ -42,9 +42,9 @@ object Utility {
     fun getMainMenu(){
         println("""
             |                                                                         |
-            |                        1  TWO PLAYER                                    |
-            |                             2  VS SABRINA                               |
-            |                                 3  EXIT / KELUAR                        |
+            |${Color.WARNA_CYAN_BOLD}                        1  TWO PLAYER ${Color.WARNA_RESET}                                   |
+            |${Color.WARNA_UNGU_BOLD}                             2  VS SABRINA ${Color.WARNA_RESET}                              |
+            |${Color.WARNA_MERAH_BOLD}                                 3  EXIT / KELUAR ${Color.WARNA_RESET}                       |
             |                                                                         |
             +-------------------------------------------------------------------------+
         """.trimIndent())
@@ -62,17 +62,14 @@ object Utility {
     }
 
     fun getGameOver(){
-        println("""
-                  
-                        @@@@@@    @@@    @@     @@  @@@@@@@     @@@@@   @@   @@  @@@@@@@  @@@@@@
-                       @@        @@ @@   @@@   @@@  @@         @@   @@  @@   @@  @@       @@   @@
-                      @@        @@   @@  @@@@ @@@@  @@         @@   @@  @@   @@  @@       @@   @@
-                      @@   @@@  @@   @@  @@  @  @@  @@@@@      @@   @@  @@   @@  @@@@@    @@  @@@
-                      @@    @@  @@@@@@@  @@     @@  @@         @@   @@  @@   @@  @@       @@@@@
-                       @@   @@  @@   @@  @@     @@  @@         @@   @@   @@ @@   @@       @@ @@@
-                        @@@@@@  @@   @@  @@     @@  @@@@@@@     @@@@@     @@@    @@@@@@@  @@  @@@
-               
-            """.trimIndent())
+        println("""${Color.WARNA_MERAH}                
+  @@@@@@    @@@    @@     @@  @@@@@@@     @@@@@   @@   @@  @@@@@@@  @@@@@@
+ @@        @@ @@   @@@   @@@  @@         @@   @@  @@   @@  @@       @@   @@
+@@        @@   @@  @@@@ @@@@  @@         @@   @@  @@   @@  @@       @@   @@
+@@   @@@  @@   @@  @@  @  @@  @@@@@      @@   @@  @@   @@  @@@@@    @@  @@@
+@@    @@  @@@@@@@  @@     @@  @@         @@   @@  @@   @@  @@       @@@@@
+ @@   @@  @@   @@  @@     @@  @@         @@   @@   @@ @@   @@       @@ @@@
+  @@@@@@  @@   @@  @@     @@  @@@@@@@     @@@@@     @@@    @@@@@@@  @@  @@@${Color.WARNA_RESET}""".trimIndent())
     }
 
     fun getSayGoodBye(){
@@ -86,7 +83,7 @@ object Utility {
                 print("     ")
             }
             for (kolom in 1 .. totalKolom) {
-                print("*         ")
+                print("${Color.WARNA_KUNING_BOLD}*         ${Color.WARNA_RESET}")
             }
             println()
         }
@@ -145,32 +142,29 @@ object Utility {
     }
 
     fun rockPatternString(): String {
-        return """
-                                 *  *  *     
+        return """${Color.WARNA_BIRU_BOLD}                                 *  *  *     
                               *  *  *  *  *  
                               *  *  *  *  *  
                               *  *  *  *  *  
-                                 *  *  *   
+                                 *  *  *   ${Color.WARNA_RESET}
         """.trimMargin()
     }
 
     fun paperPatternString(): String {
-        return """
-                               *  *  *  *  *
+        return """${Color.WARNA_BIRU_BOLD}                               *  *  *  *  *
                               *  *  *  *  *
                              *  *  *  *  *
                             *  *  *  *  *
-                           *  *  *  *  *
+                           *  *  *  *  *${Color.WARNA_RESET}
         """.trimMargin()
     }
 
     fun scissorPatternString(): String {
-        return """
-                              *           *
+        return """${Color.WARNA_BIRU_BOLD}                              *           *
                                  *     * 
                                     *
                               *  *     *  *
-                              *           *
+                              *           *${Color.WARNA_RESET}
         """.trimMargin()
     }
 }

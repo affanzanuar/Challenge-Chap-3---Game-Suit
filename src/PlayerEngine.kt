@@ -30,12 +30,12 @@ abstract class PlayerEngine {
             print(String.format("| Nama   |  %-25s", this.name))
             print(String.format("||   %-25s", opponent.name))
             println("        |")
-            print(String.format("| Win    |  %-25s", this.score))
-            print(String.format("||   %-25s", opponent.score))
-            println("        |")
-            print(String.format("| Health |  %-5s", this.health))
-            print(String.format(" / 100.0            ||   %-6s", opponent.health))
-            print("/ 100.0                    |")
+            print(String.format("|${Color.WARNA_HIJAU} Win    ${Color.WARNA_RESET}|${Color.WARNA_HIJAU}  %-25s", this.score))
+            print(String.format("${Color.WARNA_RESET}||${Color.WARNA_HIJAU}   %-25s", opponent.score))
+            println("${Color.WARNA_RESET}        |")
+            print(String.format("|${Color.WARNA_MERAH} Health ${Color.WARNA_RESET}|${Color.WARNA_MERAH}  %-5s", this.health))
+            print(String.format(" / 100.0            ${Color.WARNA_RESET}||${Color.WARNA_MERAH}   %-6s", opponent.health))
+            print("/ 100.0                    ${Color.WARNA_RESET}|")
             println()
             println("============================================================================")
         }
@@ -73,7 +73,7 @@ abstract class PlayerEngine {
 
         if (playerOneHand==playerTwoHand){
             getHandResult()
-            print("\n                    ||*****************      DRAW      ******************||")
+            print("\n${Color.WARNA_HIJAU_BOLD}                    ||*****************      DRAW      ******************||${Color.WARNA_RESET}")
             this.health += healthRegen
             opponent.health += healthRegen
             maxMinHealth()
@@ -84,7 +84,7 @@ abstract class PlayerEngine {
             || playerOneHand == c && playerTwoHand == a
         ) {
             getHandResult()
-            print("\n                      ||****************** ${this.name} WIN ******************||")
+            print("\n${Color.WARNA_HIJAU_BOLD}                      ||****************** ${this.name} WIN ******************||${Color.WARNA_RESET}")
             this.score++
             this.health += healthRegen
             opponent.health -= healthLose
@@ -92,7 +92,7 @@ abstract class PlayerEngine {
             getLiveResult()
         } else {
             getHandResult()
-            print("\n                     ||****************** ${opponent.name} WIN ******************||")
+            print("\n${Color.WARNA_HIJAU_BOLD}                     ||****************** ${opponent.name} WIN ******************||${Color.WARNA_RESET}")
             opponent.health += healthRegen
             this.health -= healthLose
             opponent.score++
@@ -104,16 +104,16 @@ abstract class PlayerEngine {
             Utility.getHeaderGame()
             Utility.getGameOver()
             if (this.health<=0){
-                println("""
+                print("""${Color.WARNA_HIJAU_BOLD}
                          ${opponent.name}
                           WIN THIS MATCH
-                """.trimMargin())
+                ${Color.WARNA_RESET}""".trimMargin())
                 getLiveResult()
             } else {
-                println("""
+                print("""${Color.WARNA_HIJAU_BOLD}
                          ${this.name}
                           WIN THIS MATCH
-                """.trimMargin())
+                ${Color.WARNA_RESET}""".trimMargin())
                 getLiveResult()
             }
 
